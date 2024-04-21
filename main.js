@@ -21,7 +21,7 @@ function getAmounts(wallets) {
 }
 
 async function main() {
-    const wallets = fs.readFileSync('wallets.txt', 'utf8').toString().split('\n');
+    const wallets = fs.readFileSync('wallets.txt', 'utf8').toString().split('\n').map(x => x.replace(/(\r\n|\n|\r)/gm, ""));
     console.log(`Made by - https://t.me/cookiejunkieeth\nMade by - https://t.me/cookiejunkieeth\nMade by - https://t.me/cookiejunkieeth\n\nDispersing Ether to ${wallets.length} wallets...`);
     const amounts = getAmounts(wallets);
 
